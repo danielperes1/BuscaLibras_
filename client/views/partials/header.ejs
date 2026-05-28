@@ -1,0 +1,39 @@
+<header class="site-header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="/" class="header-logo">
+      <img src="/img/logo.png" alt="Busca Libras" />
+    </a>
+
+    <!-- Navegação central -->
+    <nav class="header-nav">
+      <% if (usuario && usuario.perfil === 'administrador') { %>
+        <a href="/admin/dashboard" class="nav-link">Home</a>
+        <a href="/profissionais" class="nav-link">Profissionais</a>
+        <a href="/solicitantes" class="nav-link">Solicitantes</a>
+        <a href="/meu-perfil" class="nav-link">Meu Perfil</a>
+      <% } else if (usuario && usuario.perfil === 'profissional') { %>
+        <a href="/dashboard/inicio" class="nav-link">Home</a>
+        <a href="/meu-perfil" class="nav-link">Meu Perfil</a>
+      <% } else if (usuario && usuario.perfil === 'solicitante') { %>
+        <a href="/profissionais/vitrine" class="nav-link">Home</a>
+        <a href="/meu-perfil" class="nav-link">Meu Perfil</a>
+      <% } %>
+    </nav>
+
+    <!-- Usuário logado -->
+    <div class="header-user">
+      <% if (usuario) { %>
+        <span class="header-greeting">Olá, <%= usuario.nome %></span>
+        <span class="header-badge header-badge--<%= usuario.perfil %>">
+          <%= usuario.perfil === 'administrador' ? 'ADM' : usuario.perfil === 'profissional' ? 'PRO' : 'SOL' %>
+        </span>
+        <a href="/usuarios/logout" class="header-logout" title="Sair">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+      <% } %>
+    </div>
+
+  </div>
+</header>

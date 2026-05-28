@@ -1,0 +1,664 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY COMPARTILHADO ===== */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #005d78, #00c4a7);
+}
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+.page-login {
+  overflow: hidden;
+  position: relative;
+}
+
+.page-login::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  bottom: -250px;
+  right: -150px;
+}
+
+.page-login .container {
+  width: 100%;
+  max-width: 750px;
+  background: #dfeaea;
+  border-radius: 20px;
+  padding: 60px 55px;
+  position: relative;
+  z-index: 2;
+}
+
+.page-login .logo {
+  width: 230px;
+  display: block;
+  margin: 0 auto 30px;
+}
+
+.page-login h1 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 32px;
+  color: #000;
+}
+
+.page-login .input-group {
+  margin-bottom: 20px;
+}
+
+.page-login .input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #0b3f70;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.page-login .input-box {
+  width: 100%;
+  height: 52px;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.page-login .input-box i {
+  color: #999;
+  font-size: 15px;
+}
+
+.page-login .input-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+}
+
+.page-login .forgot-password {
+  text-align: right;
+  margin-top: -5px;
+  margin-bottom: 25px;
+}
+
+.page-login .forgot-password a {
+  font-size: 12px;
+  color: #0b3f70;
+  text-decoration: none;
+}
+
+.page-login .btn-login {
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 10px;
+  background: #1fa596;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.page-login .btn-login:hover {
+  background: #16897d;
+}
+
+.page-login .register {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+.page-login .register a {
+  color: #0b3f70;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.admin-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border-radius: 50px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  z-index: 3;
+}
+
+.admin-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.admin-info { line-height: 1.2; }
+
+.admin-info h3 {
+  font-size: 12px;
+  color: #000;
+}
+
+.admin-info p {
+  font-size: 10px;
+  color: #666;
+}
+
+/* ============================================================
+   ESCOLHA
+   ============================================================ */
+.page-escolha .container {
+  width: 800px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.page-escolha .logo {
+  margin-bottom: 15px;
+}
+
+.page-escolha .logo img {
+  width: 180px;
+}
+
+.page-escolha h2 {
+  margin: 15px 0 35px;
+  font-size: 38px;
+  color: #000;
+}
+
+.page-escolha .cards {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  margin-bottom: 45px;
+}
+
+.page-escolha .card {
+  width: 260px;
+  height: 260px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.page-escolha .card:hover {
+  transform: translateY(-5px);
+}
+
+.page-escolha .card img {
+  width: 220px;
+  height: auto;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.page-escolha .footer {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.page-escolha .footer a {
+  color: #1b3b6f;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .page-escolha .container {
+    width: 95%;
+    padding: 30px 20px;
+  }
+
+  .page-escolha .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .page-escolha .card {
+    width: 100%;
+    max-width: 260px;
+    height: 250px;
+  }
+
+  .page-escolha .card img {
+    width: 120px;
+  }
+}
+
+/* ============================================================
+   CADASTRO
+   ============================================================ */
+.page-cadastro {
+  padding: 20px;
+}
+
+.page-cadastro .container {
+  width: 100%;
+  max-width: 1200px;
+  background: #dce9e8;
+  border-radius: 24px;
+  padding: 35px 50px;
+}
+
+.page-cadastro .logo {
+  width: 210px;
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.page-cadastro .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.page-cadastro .column-title {
+  text-align: center;
+  margin: 12px 0 10px;
+  color: #666;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.page-cadastro .input-group {
+  margin-bottom: 12px;
+}
+
+.page-cadastro .input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+}
+
+.page-cadastro .input-box {
+  width: 100%;
+  height: 46px;
+  border: 2px solid #5da24b;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+}
+
+.page-cadastro .input-box i {
+  color: #999;
+  font-size: 15px;
+}
+
+.page-cadastro .input-box input,
+.page-cadastro .input-box select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-cadastro .foto-preview {
+  display: block;
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 8px auto 0;
+}
+
+.page-cadastro .perfil-section {
+  margin-bottom: 20px;
+}
+
+.page-cadastro .perfil-section .column-title {
+  margin-bottom: 10px;
+}
+
+.page-cadastro .checkbox-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.page-cadastro .checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.page-cadastro .checkbox-item input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.page-cadastro .button-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-cadastro .btn {
+  width: 340px;
+  height: 54px;
+  border: none;
+  border-radius: 14px;
+  background: #16a596;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.page-cadastro .btn:hover {
+  background: #118d80;
+}
+
+.page-cadastro .login-link {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.page-cadastro .login-link a {
+  color: #3399ff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+@media (max-width: 1000px) {
+  .page-cadastro .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-cadastro .btn {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   CADASTRO 2 (Solicitante)
+   ============================================================ */
+.page-cadastro2 {
+  padding: 20px;
+}
+
+.page-cadastro2 .container {
+  width: 100%;
+  max-width: 1200px;
+  background: #dce9e8;
+  border-radius: 24px;
+  padding: 35px 50px;
+}
+
+.page-cadastro2 .logo {
+  width: 210px;
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.page-cadastro2 .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.page-cadastro2 .section-title,
+.page-cadastro2 .column-title {
+  text-align: center;
+  margin: 12px 0 10px;
+  color: #666;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.page-cadastro2 .input-group {
+  margin-bottom: 12px;
+}
+
+.page-cadastro2 .input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+}
+
+.page-cadastro2 .input-box {
+  width: 100%;
+  height: 46px;
+  border: 2px solid #5da24b;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+}
+
+.page-cadastro2 .input-box i {
+  color: #999;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.page-cadastro2 .input-box input,
+.page-cadastro2 .input-box select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-cadastro2 .foto-preview {
+  display: block;
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 8px auto 0;
+}
+
+.page-cadastro2 .button-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.page-cadastro2 .button-area button {
+  width: 340px;
+  height: 54px;
+  border: none;
+  border-radius: 14px;
+  background: #16a596;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-cadastro2 .button-area button:hover {
+  background: #118d80;
+}
+
+.page-cadastro2 .login {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #444;
+}
+
+.page-cadastro2 .login a {
+  color: #3399ff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+@media (max-width: 1000px) {
+  .page-cadastro2 .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-cadastro2 .button-area button {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   SISTEMA (páginas internas pós-login)
+   ============================================================ */
+.page-sistema {
+  background: linear-gradient(135deg, #005d78, #00c4a7);
+  min-height: 100vh;
+  display: block;
+  align-items: unset;
+  justify-content: unset;
+  padding: 20px;
+}
+
+/* HEADER */
+.site-header {
+  background: #fff;
+  border-radius: 50px;
+  padding: 0 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  gap: 32px;
+}
+
+.header-logo img {
+  height: 44px;
+  width: auto;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+}
+
+.header-nav .nav-link {
+  text-decoration: none;
+  color: #2d2d2d;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.header-nav .nav-link:hover,
+.header-nav .nav-link.active {
+  color: #1a7a5e;
+  font-weight: 600;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.header-greeting {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.header-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .5px;
+}
+
+.header-badge--administrador { background: #e05c5c; }
+.header-badge--profissional  { background: #1a7a5e; }
+.header-badge--solicitante   { background: #f0a500; }
+
+.header-logout {
+  color: #888;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.header-logout:hover { color: #e05c5c; }
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.main-content h1 {
+  font-size: 24px;
+  color: #2d2d2d;
+  font-weight: 600;
+}

@@ -1,0 +1,173 @@
+<%- include('../partials/head', { titulo: 'Cadastro Profissional' }) %>
+
+<body class="page-cadastro">
+  <div class="container">
+    <img src="/img/logo.png" alt="Busca Libras" class="logo" />
+
+    <form action="/usuarios/cadastrar" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="perfil" value="profissional" />
+
+      <div class="form-grid">
+
+        <!-- COLUNA 1 -->
+        <div>
+          <h2 class="column-title">Dados Básicos</h2>
+
+          <div class="input-group">
+            <label>Nome completo</label>
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" name="nome" placeholder="Digite seu nome completo" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Data de nascimento</label>
+            <div class="input-box">
+              <i class="fa-solid fa-calendar"></i>
+              <input type="date" name="data_de_nascimento" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Estado</label>
+            <div class="input-box">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="estado" placeholder="Digite seu estado" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Cidade</label>
+            <div class="input-box">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="cidade" placeholder="Digite sua cidade" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA 2 -->
+        <div>
+          <h2 class="column-title">Contato</h2>
+
+          <div class="input-group">
+            <label>Telefone</label>
+            <div class="input-box">
+              <i class="fa-solid fa-phone"></i>
+              <input type="text" name="telefone" placeholder="Digite seu telefone" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <div class="input-box">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" name="email" placeholder="Digite seu email" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Foto</label>
+            <div class="input-box">
+              <i class="fa-solid fa-camera"></i>
+              <input type="file" name="foto" accept="image/*" onchange="previewFoto(this)" />
+            </div>
+            <img id="foto-preview" src="/img/sem-foto.png" alt="Preview" class="foto-preview"
+              onerror="this.style.display='none'" />
+          </div>
+        </div>
+
+        <!-- COLUNA 3 -->
+        <div>
+          <h2 class="column-title">Segurança</h2>
+
+          <div class="input-group">
+            <label>Senha</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" name="senha" placeholder="Digite sua senha" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Confirme sua senha</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" name="senha_confirmar" placeholder="Confirme sua senha" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Pergunta de recuperação</label>
+            <div class="input-box">
+              <i class="fa-solid fa-circle-question"></i>
+              <select name="pergunta_rec_senha" required>
+                <option value="">Escolha uma pergunta...</option>
+                <option value="Qual o nome da sua mãe?">Qual o nome da sua mãe?</option>
+                <option value="Qual o nome do seu primeiro pet?">Qual o nome do seu primeiro pet?</option>
+                <option value="Qual o nome do jogador de futebol preferido?">Qual o nome do jogador de futebol preferido?</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Resposta</label>
+            <div class="input-box">
+              <i class="fa-solid fa-key"></i>
+              <input type="text" name="resposta_rec_senha" placeholder="Sua resposta secreta..." required />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ÁREA DE ATUAÇÃO -->
+      <div class="perfil-section">
+        <h2 class="column-title">Área de atuação</h2>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="radio" name="area_de_atuacao" value="Intérprete de Libras" required />
+            Intérprete de Libras
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="area_de_atuacao" value="Tradutor de Libras" />
+            Tradutor de Libras
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="area_de_atuacao" value="Guia-Intérprete" />
+            Guia-Intérprete
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="area_de_atuacao" value="Instrutor de Libras" />
+            Instrutor de Libras
+          </label>
+        </div>
+      </div>
+
+      <div class="button-area">
+        <button class="btn" type="submit">Cadastrar</button>
+      </div>
+
+      <div class="login-link">
+        Já tem uma conta?
+        <a href="/login">Entrar</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function previewFoto(input) {
+      const preview = document.getElementById('foto-preview')
+      if (input.files && input.files[0]) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          preview.src = e.target.result
+          preview.style.display = 'block'
+        }
+        reader.readAsDataURL(input.files[0])
+      }
+    }
+  </script>
+
+</body>
+</html>

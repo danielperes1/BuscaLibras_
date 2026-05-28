@@ -1,0 +1,151 @@
+<%- include('../partials/head', { titulo: 'Cadastro Solicitante' }) %>
+
+<body class="page-cadastro2">
+
+  <div class="container">
+
+    <img src="/img/logo.png" alt="Busca Libras" class="logo">
+
+    <form action="/usuarios/cadastrar" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="perfil" value="solicitante" />
+
+      <div class="form-grid">
+
+        <!-- COLUNA 1: DADOS BÁSICOS -->
+        <div>
+          <h2 class="column-title">Dados Básicos</h2>
+
+          <div class="input-group">
+            <label>Nome completo</label>
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" name="nome" placeholder="Digite seu nome" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Data de nascimento</label>
+            <div class="input-box">
+              <i class="fa-solid fa-calendar"></i>
+              <input type="date" name="data_de_nascimento" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <div class="input-box">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" name="email" placeholder="Digite seu email" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Telefone</label>
+            <div class="input-box">
+              <i class="fa-solid fa-phone"></i>
+              <input type="text" name="telefone" placeholder="Digite seu telefone" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: LOCALIZAÇÃO + FOTO -->
+        <div>
+          <h2 class="column-title">Contato</h2>
+
+          <div class="input-group">
+            <label>Cidade</label>
+            <div class="input-box">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="cidade" placeholder="Digite sua cidade" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Estado</label>
+            <div class="input-box">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="estado" placeholder="Digite seu estado" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Foto de perfil</label>
+            <div class="input-box">
+              <i class="fa-solid fa-camera"></i>
+              <input type="file" name="foto" accept="image/*" onchange="previewFoto(this)" />
+            </div>
+            <img id="foto-preview" src="/img/sem-foto.png" alt="Preview" class="foto-preview"
+              onerror="this.style.display='none'" />
+          </div>
+        </div>
+
+        <!-- COLUNA 3: SEGURANÇA -->
+        <div>
+          <h2 class="column-title">Segurança</h2>
+
+          <div class="input-group">
+            <label>Senha</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" name="senha" placeholder="Digite sua senha" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Confirme sua senha</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" name="senha_confirmar" placeholder="Digite sua senha" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Pergunta de recuperação</label>
+            <div class="input-box">
+              <select name="pergunta_rec_senha" required>
+                <option value="">Escolha uma pergunta...</option>
+                <option value="Qual o nome da sua mãe?">Qual o nome da sua mãe?</option>
+                <option value="Qual o nome do seu primeiro pet?">Qual o nome do seu primeiro pet?</option>
+                <option value="Qual o nome do jogador de futebol preferido?">Qual o nome do jogador de futebol preferido?</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Resposta</label>
+            <div class="input-box">
+              <input type="text" name="resposta_rec_senha" placeholder="Sua resposta secreta..." required />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="button-area">
+        <button type="submit">Cadastrar ➜</button>
+      </div>
+
+      <div class="login">
+        Já tem uma conta?
+        <a href="/login">Entrar</a>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    function previewFoto(input) {
+      const preview = document.getElementById('foto-preview')
+      if (input.files && input.files[0]) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          preview.src = e.target.result
+          preview.style.display = 'block'
+        }
+        reader.readAsDataURL(input.files[0])
+      }
+    }
+  </script>
+
+</body>
+</html>
